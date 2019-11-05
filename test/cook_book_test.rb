@@ -33,7 +33,21 @@ class CookBookTest < Minitest::Test
     assert_equal [@mac_and_cheese, @burger], @cookbook.recipes
   end
 
+  def test_it_can_print_summary_of_single_recipe
+    expected = {
+                :name=>"Mac and Cheese",
+                :details=>{
+                            :ingredients=>[
+                                            {:ingredient=>"Macaroni", :amount=>"8 oz"},
+                                            {:ingredient=>"Cheese", :amount=>"2 C"}],
+                            :total_calories=>440
+                          }
+                }
+    assert_equal expected, @cookbook.single_summary
+  end
+  
   def test_it_can_print_summary_of_all_recipes
+    skip
     expected = [{
                 :name=>"Mac and Cheese",
                 :details=>{
