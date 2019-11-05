@@ -47,7 +47,8 @@ class CookBookTest < Minitest::Test
   end
 
   def test_it_can_print_summary_of_all_recipes
-    skip
+    @cookbook.add_recipe(@mac_and_cheese)
+    @cookbook.add_recipe(@burger)
     expected = [{
                 :name=>"Mac and Cheese",
                 :details=>{
