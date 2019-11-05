@@ -18,4 +18,7 @@ class CookBook
     }
   end
 
+  def summary
+    @recipes.map { |recipe| single_summary(recipe) }
+  end
 end
