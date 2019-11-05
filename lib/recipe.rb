@@ -27,7 +27,10 @@ class Recipe
   end
 
   def ingredients_in_units
-    @ingredients_required.find do |ingredient|
+    @ingredients_required.sort_by do |ingredient, amount|
+      ingredient_calories(ingredient)
+    end.reverse.map do |ingredient, amount|
+      { ingredient: ingredient.name, amount: "#{amount} #{ingredient.unit}" }
     end
   end
 end
