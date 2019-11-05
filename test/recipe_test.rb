@@ -40,4 +40,10 @@ class RecipeTest < Minitest::Test
     expected = [@cheese, @mac]
     assert_equal expected, @mac_and_cheese.ingredients
   end
+
+  def test_it_can_calculate_total_calories_of_all_ingredients
+    @mac_and_cheese.add_ingredient(@cheese, 2)
+    @mac_and_cheese.add_ingredient(@mac, 8)
+    assert_equal 440, @mac_and_cheese.total_calories
+  end
 end
