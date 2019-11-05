@@ -43,9 +43,9 @@ class CookBookTest < Minitest::Test
                             :total_calories=>440
                           }
                 }
-    assert_equal expected, @cookbook.single_summary
+    assert_equal expected, @cookbook.single_summary(@mac_and_cheese)
   end
-  
+
   def test_it_can_print_summary_of_all_recipes
     skip
     expected = [{
