@@ -47,10 +47,16 @@ class RecipeTest < Minitest::Test
     assert_equal 440, @mac_and_cheese.total_calories
   end
 
+  def test_it_can_calculate_ingredient_contributions_to_total_calories
+    assert_equal 200, @mac_and_cheese.ingredient_calories(@cheese)
+    assert_equal 240, @mac_and_cheese.ingredient_calories(@cmac)
+  end
+
   def test_it_can_concatenate_amount_and_unit_of_ingredient_as_string
     @mac_and_cheese.add_ingredient(@cheese, 2)
     @mac_and_cheese.add_ingredient(@mac, 8)
-    assert_equal "2 C", @mac_and_cheese.amount_in_units(@cheese)
-    assert_equal "8 oz", @mac_and_cheese.amount_in_units(@mac)
+    expected = [{:ingredient=>"Macaroni", :amount=>"8 oz"},
+                {:ingredient=>"Cheese", :amount=>"2 C"}]
+    assert_equal expected, @mac_and_cheese.ingredients_in_units
   end
 end
