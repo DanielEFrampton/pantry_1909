@@ -18,7 +18,16 @@ class Recipe
     @ingredients_required.keys
   end
 
+  def ingredient_calories(ingredient)
+    @ingredients_required[ingredient] * ingredient.calories
+  end
+
   def total_calories
     @ingredients_required.sum { |key, value| key.calories * value }
+  end
+
+  def ingredients_in_units
+    @ingredients_required.find do |ingredient|
+    end
   end
 end
