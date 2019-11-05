@@ -48,8 +48,10 @@ class RecipeTest < Minitest::Test
   end
 
   def test_it_can_calculate_ingredient_contributions_to_total_calories
+    @mac_and_cheese.add_ingredient(@cheese, 2)
+    @mac_and_cheese.add_ingredient(@mac, 8)
     assert_equal 200, @mac_and_cheese.ingredient_calories(@cheese)
-    assert_equal 240, @mac_and_cheese.ingredient_calories(@cmac)
+    assert_equal 240, @mac_and_cheese.ingredient_calories(@mac)
   end
 
   def test_it_can_concatenate_amount_and_unit_of_ingredient_as_string
